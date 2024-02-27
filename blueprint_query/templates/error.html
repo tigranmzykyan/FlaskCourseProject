@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Результаты не найдены</title>
+    <style>
+        body {
+            text-align: center;
+            padding: 40px;
+            font-family: 'Arial';
+            background-color: #f8f9fa;
+        }
+
+        h1 {
+            color: #1169ce;
+            font-size: 24px;
+        }
+
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #1169ce;
+            border: none;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #1169ce;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Результаты не найдены</h1>
+    <a href="{{url_for('bp_query.query_menu')}}">Попробовать снова</a>
+    <a href="{{url_for('main_menu')}}">В главное меню</a>
+
+</body>
+</html>

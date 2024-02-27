@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск</title>
+</head>
+
+<body style="background-color: #f0f8ff;">
+
+    <center>
+        <div style="height: auto; width: 600px; border: 4px solid #0047ab; background-color: #007acc; padding: 20px; border-radius: 10px; margin-top: 20px;">
+            <img src="https://webcomtrans.com/upload/medialibrary/cfa/cfa6388c71bd4ef4f9dfcff650ef6f90.jpg"
+                 style="height: 250px; width: 100%; margin-top: 10px; border: 2px solid #1169ce; border-radius: 5px;">
+            <h2 style="margin-top: 10px; color: #ffffff;">Введите параметры поиска</h2>
+            <form action="" method="post">
+                <label for="date" style="color: #ffffff;">Введите дату отчёта</label>
+                <input type="month" name="date" id="date" style="margin-bottom: 10px;">
+                <br><br>
+                <input type="submit" class="button" value="Отправить" style="background-color: #000000; color: #ffffff; padding: 8px 16px; border: none; border-radius: 5px; cursor: pointer;">
+                <input type="reset" class="button" value="Очистить" style="background-color: #000000; color: #ffffff; padding: 8px 16px; border: none; border-radius: 5px; cursor: pointer;">
+            </form>
+            <div style="height: 10px; clear:both;"></div>
+            <a href="{{url_for('main_menu')}}" style="font-size: 24px; color: #ffffff; text-decoration: none; margin-right: 20px;">Главное меню</a>
+            <a href="{{url_for('bp_report.work_with_reports')}}" style="font-size: 24px; color: #ffffff; text-decoration: none; margin-right: 20px;">Меню отчетов</a>
+            <a href="{{url_for('bp_auth.sign_out')}}" style="font-size: 24px; color: #ffffff; text-decoration: none;">Выйти из системы</a>
+            {% if error %}
+            <p class="error" style="font-size: 20px; color: #ff0000;"><strong>Произошла ошибка:<br/></strong> {{ error }}</p>
+            {% endif %}
+            <div style="height: 20px; clear:both;"></div>
+        </div>
+    </center>
+
+</body>
+
+</html>

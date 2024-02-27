@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Меню запросов</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu-container {
+            text-align: center;
+            margin: 50px auto;
+            width: 60%;
+        }
+
+        h1 {
+            color: #1169ce;
+            font-size: 28px;
+        }
+
+        .menu {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .menu a {
+            display: block;
+            padding: 15px;
+            background-color: #1169ce;
+            color: #fff;
+            text-decoration: none;
+            margin: 15px 0;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            font-size: 18px;
+        }
+
+        .menu a:hover {
+            background-color: #1169ce;
+        }
+
+        /* Additional styling for highlighted buttons */
+        .highlighted-button {
+            font-size: 24px;
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+            background-color: #1169ce;
+            padding: 15px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .highlighted-button:hover {
+            background-color: #1169ce;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menu-container">
+        <h1>Меню запросов</h1>
+        <div class="menu">
+            <a href="{{url_for('bp_query.query_emp')}}">Показать все сведения о сотруднике</a>
+            <a href="{{url_for('bp_query.query_reg_ships')}}">Показать все сведения о регистрации кораблей по дате</a>
+            <a href="{{url_for('bp_query.home_port')}}">Показать все сведения о кораблях по порту прописки</a>
+            <a href="{{url_for('bp_query.query_dock')}}">Показать все сведения о причалах по типу</a>
+            <a href="{{url_for('bp_query.query_report')}}">Отчет о регистрации кораблей по промежтку</a>
+        </div>
+        <div style="height: 10px; clear:both;"></div>
+            <div style="text-align: center;">
+                <a href="{{url_for('main_menu')}}" style="font-size: 24px; color: #1169ce; text-decoration: none; margin-right: 20px;">Главное меню</a>
+                <a href="{{url_for('bp_auth.sign_out')}}" style="font-size: 24px; color: #1169ce; text-decoration: none;">Выйти из системы</a>
+            </div>
+    </div>
+</body>
+
+</html>

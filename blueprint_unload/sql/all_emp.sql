@@ -1,0 +1,1 @@
+select EmployeeID, LastName, Profession from Employees

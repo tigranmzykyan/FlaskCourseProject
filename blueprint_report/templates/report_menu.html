@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Меню выбора</title>
+</head>
+
+<body style="background-color: #f0f8ff;">
+
+    <center>
+        <div style="width: 600px; border: 4px solid #0047ab; background-color: #007acc; padding: 20px; border-radius: 10px; margin-top: 20px;">
+             <img src="https://webcomtrans.com/upload/medialibrary/cfa/cfa6388c71bd4ef4f9dfcff650ef6f90.jpg"
+                style="height: 250px; width: 100%; margin-top: 10px; border: 2px solid #1169ce; border-radius: 5px;">
+            <div style="height: 10px; clear:both;"></div>
+            {% for key in key_list %}
+            <div style="margin-bottom: 20px; text-align: center;">
+                <a href="{{url_for('bp_report.create_report', report_key=key)}}" style="font-size: 24px; color: #ffffff; text-decoration: none; margin-right: 20px;">Создать {{key}}</a>
+                <br>
+                <a href="{{url_for('bp_report.report_show', report_key=key)}}" style="font-size: 24px; color: #ffffff; text-decoration: none;">Показать {{key}}</a>
+            </div>
+            {% endfor %}
+            <div style="height: 20px; clear:both;"></div>
+            <div style="text-align: center;">
+                <a href="{{url_for('main_menu')}}" style="font-size: 24px; color: #ffffff; text-decoration: none; margin-right: 20px;">Главное меню</a>
+                <a href="{{url_for('bp_auth.sign_out')}}" style="font-size: 24px; color: #ffffff; text-decoration: none;">Выйти из системы</a>
+            </div>
+        </div>
+    </center>
+
+</body>
+
+</html>

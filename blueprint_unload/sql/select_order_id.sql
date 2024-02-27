@@ -1,0 +1,1 @@
+select max(id) as max_id from Supermarket.order where user_id = '$user_id'

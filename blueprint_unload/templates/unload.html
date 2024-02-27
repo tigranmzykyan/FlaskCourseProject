@@ -1,0 +1,27 @@
+{% macro render_item(item, EmployeeID, show_form = True, show_amount = False) %}
+<div style="border: 2px solid #1e90ff; padding: 10px; margin: 10px; background-color: #f0f8ff;">
+    <p>
+        <span>Номер сотрудника</span>
+        <span style="color: #1e90ff;"> {{item['EmployeeID']}}</span>
+        <br>
+        <span>Фамилия сотрудника</span>
+        <span style="color: #1e90ff;"> {{item['LastName']}}</span>
+        <br>
+        <span>Должность сотрудника</span>
+        <span style="color: #1e90ff;"> {{item['Profession']}}</span>
+        <br>
+    </p>
+
+    {% if show_form %}
+    <form method="post" action="">
+        <input style="color: red;" type="submit" name="send" value="Добавить сотрудника">
+        <input type="hidden" value="{{EmployeeID}}" name="EmployeeID" id="{{EmployeeID}}">
+    </form>
+    {% endif %}
+
+    {% if show_amount %}
+    <span>Количество</span>
+    <span style="color: #1e90ff;"> {{item['amount']}}</span>
+    {% endif %}
+</div>
+{% endmacro %}

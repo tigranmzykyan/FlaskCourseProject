@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Main menu</title>
+    <style>
+        body {
+            text-align: center;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        h2 {
+            color: #1169ce;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-container {
+            margin-top: 20px;
+        }
+
+        img {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            width: 350px;
+        }
+
+        .btn-container {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            margin: 10px;
+            padding: 12px 24px;
+            font-size: 18px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #1169ce;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #1169ce;
+        }
+
+        .btn:active {
+            background-color: #1169ce;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transform: translateY(4px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Порт</h2>
+
+        <div class="image-container">
+            <img src="https://www.eastrussia.ru/upload/blogs/en_2.jpg" height="300px" width="350px" alt="Port Image">
+        </div>
+
+    {% if session.get("user_group") == 'admin' %}
+        <div class="btn-container">
+        <a class="btn" href="{{url_for('bp_query.query_menu')}}">Работа с запросами</a>
+        <a class="btn" href="{{url_for('bp_report.work_with_reports')}}">Работа с отчетом</a>
+        <a class="btn" href="{{url_for('bp_unload.unload_menu')}}">Создание бригады на разгрузку корабля</a>
+        <a class="btn" href="{{url_for('bp_auth.sign_out')}}">Выход из системы</a>
+        </div>
+    {% elif session.get("user_group") == "manager" %}
+        <div class="btn-container">
+        <a class="btn" href="{{url_for('bp_query.query_menu')}}">Работа с запросами</a>
+        <a class="btn" href="{{url_for('bp_report.work_with_reports')}}">Работа с отчетом</a>
+        <a class="btn" href="{{url_for('bp_auth.sign_out')}}">Выход из системы</a>
+        </div>
+    {% elif session.get("user_group") == "unload manager"%}
+        <div class="btn-container">
+        <a class="btn" href="{{url_for('bp_unload.unload_menu')}}">Создание бригады на разгрузку корабля</a>
+        <a class="btn" href="{{url_for('bp_auth.sign_out')}}">Выход из системы</a>
+        </div>
+    {%elif session.get("user_group") == "noname"%}
+        <div class="btn-container">
+        <a class="btn" href="{{url_for('bp_auth.sign_out')}}">Выход из системы</a>
+        </div>
+    {% endif %}
+{#    <p>User Group (from template): {{ session.get("user_group") }}</p>#}
+    </div>
+</body>
+
+</html>

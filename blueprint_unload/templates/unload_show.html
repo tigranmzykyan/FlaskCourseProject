@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Формирование бригады</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f0f8ff; /* Голубой фон */
+        }
+
+        header {
+            display: flex;
+            height: 96px;
+            background-color: #1169ce; /* Синий цвет */
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            color: #f0f8ff; /* Белый текст */
+            font-family: 'Times New Roman', serif;
+        }
+
+        center a {
+            color: #1169ce; /* Синий цвет для ссылок в центре */
+            font-size: 24px;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        center a:hover {
+            color: #000080; /* Темно-синий цвет при наведении на ссылки */
+        }
+
+        .container {
+            background-color: #ffffff; /* Белый фон контейнера */
+            padding: 20px;
+            margin-top: 20px;
+            border: 2px solid #1169ce; /* Синяя рамка */
+            border-radius: 10px; /* Закругленные углы */
+            box-shadow: 0px 0px 15px 0px #1169ce; /* Тень для контейнера */
+        }
+
+        h2 {
+            color: #1169ce; /* Синий цвет для заголовков */
+        }
+    </style>
+</head>
+<body>
+{% import 'unload.html' as utils %}
+<header>Меню выбора</header>
+<center>
+    <a href="{{url_for('bp_unload.save_unload')}}">Сформировать Бригаду</a>
+    <a href="{{url_for('main_menu')}}">Главное меню</a>
+</center>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Сотрудники для формирования бригады</h2>
+            {% for ite in item %}
+                {{utils.render_item(ite, show_form=True, show_amount=False, EmployeeID=ite['EmployeeID'])}}
+            {% endfor %}
+        </div>
+        <div class="col-md-4">
+            <h2>Сотрудники в бригаде</h2>
+            {% if unload %}
+                {% for key in un_keys %}
+                    {{utils.render_item(unload[key], show_form=False, show_amount=False, EmployeeID=unload[key]['EmployeeID'])}}
+                {% endfor %}
+            {% endif %}
+            <a href="{{url_for('bp_unload.clear_unload')}}">Расформировать бригаду</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

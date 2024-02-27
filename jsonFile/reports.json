@@ -1,0 +1,11 @@
+{
+  "отчет о бригадах по дате": [
+    "GenerateUnloadingReport",
+    "unload.sql"
+  ],
+  "отчет о работе сотрудников по дате": [
+    "GenerateEmployeeHoursReport",
+    "work.sql"
+  ]
+
+}

@@ -1,0 +1,7 @@
+{
+  "admin":  ["bp_query", "bp_report", "bp_unload"],
+  "unload" : ["bp_unload"],
+  "noname": ["bp_query.unloadtable"],
+  "manager": ["bp_report"],
+  "analyst": ["bp_query"]
+}

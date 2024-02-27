@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Отчет уже существует</title>
+</head>
+
+<body style="background-color: #f0f8ff;">
+
+    <center>
+        <div style="height: auto; width: 600px; border: 4px solid #0047ab; background-color: #007acc; padding: 20px; border-radius: 10px; margin-top: 20px;">
+            <h2 style="margin-top: 10px; color: #ffffff;">Отчет уже существует</h2>
+            <form action="{{ url_for('bp_report.report_show', report_key=report_key) }}" method="post">
+                <input type="hidden" name="date" value="{{ date_ }}">
+                <input type="submit" class="button" value="Показать отчет" style="background-color: #000000; color: #ffffff; padding: 8px 16px; border: none; border-radius: 5px; cursor: pointer;">
+            </form>
+            <div style="height: 10px; clear:both;"></div>
+            <a href="{{url_for('main_menu')}}" style="font-size: 24px; color: #ffffff; text-decoration: none; margin-right: 20px;">Главное меню</a>
+            <a href="{{url_for('bp_report.work_with_reports')}}" style="font-size: 24px; color: #ffffff; text-decoration: none; margin-right: 20px;">Меню отчетов</a>
+            <a href="{{url_for('bp_auth.sign_out')}}" style="font-size: 24px; color: #ffffff; text-decoration: none;">Выйти из системы</a>
+            <div style="height: 20px; clear:both;"></div>
+        </div>
+    </center>
+
+</body>
+
+</html>

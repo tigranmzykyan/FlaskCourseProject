@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Форма ввода</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            color: #1169ce;
+            font-size: 24px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 60%;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        input {
+            width: 30%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .menu-container {
+            text-align: center;
+            margin: 50px auto;
+            width: 60%;
+        }
+
+        .button_slide {
+            background-color: #1169ce;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 5px;
+            font-size: 16px;
+        }
+
+        .button_slide:hover {
+            background-color: #0e559d;
+        }
+
+        a.button_slide {
+            text-decoration: none;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <br>
+        <h2>Введите параметры поиска</h2>
+        <form action="" method="post">
+            {% for input in input_params %}
+                <label for="{{ input['input_name'] }}">{{ input['label_text'] }}</label>
+                <input type="{{ input['input_type'] }}" name="{{ input['input_name'] }}" id="{{ input['input_name'] }}" value="{{ input['value'] }}">
+                <br><br>
+            {% endfor %}
+            <input type="submit" class="button_slide slide_down" value="Найти">
+            <input type="reset" class="button_slide slide_down" value="Сбросить">
+            <br><br>
+            <h2 class="error-message">{{ error }}</h2>
+
+        </form>
+            <div style="height: 10px; clear:both;"></div>
+                <div style="text-align: center;">
+            <a class="button_slide slide_down" href="{{ url_for('main_menu') }}">Главную страницу</a>
+            <a class="button_slide slide_down" href="{{ url_for('bp_query.query_menu') }}">Меню запросов</a>
+                </div>
+    </center>
+</body>
+</html>
